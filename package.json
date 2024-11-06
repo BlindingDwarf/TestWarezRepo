@@ -1,0 +1,27 @@
+{
+  "name": "testwarezrepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha tests/api.test.js --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlindingDwarf/TestWarezRepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/BlindingDwarf/TestWarezRepo/issues"
+  },
+  "homepage": "https://github.com/BlindingDwarf/TestWarezRepo#readme",
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "dotenv": "^16.4.5",
+    "mocha": "^10.8.2",
+    "pactum": "^3.7.3"
+  }
+}
