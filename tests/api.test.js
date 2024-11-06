@@ -15,7 +15,7 @@ describe("Api tests", () => {
 
     })
     
-let token_respons;
+let token_response;
 
     it.skip("Create a user", async () => {
         const response = await spec()
@@ -36,8 +36,8 @@ let token_respons;
             password: password,
         })
             .inspect()
-            token_respons = response.body.token;
-            console.log(token_respons);
+            token_response = response.body.token;
+            console.log(token_response);
             expect(response.statusCode).to.eql(200);
             expect(response.body.result).to.eql("User authorized successfully.");
         })
@@ -45,8 +45,7 @@ let token_respons;
      it("Add a book", async () => {
             const response = await spec()
             .post(`${baseUrl}/BookStore/v1/Books`)
-            .withBearerToken(token_respons)
-            .inspect()
+            .withBearerToken(token_response)
             .withBody({
                 userId: userId,
                     collectionOfIsbns: [
@@ -55,6 +54,7 @@ let token_respons;
                     }
                 ]
             })
+            .inspect()
             expect(response.statusCode).to.eql(201);
         })
 });

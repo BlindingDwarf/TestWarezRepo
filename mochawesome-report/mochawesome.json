@@ -3,14 +3,14 @@
     "suites": 1,
     "tests": 4,
     "passes": 1,
-    "pending": 1,
-    "failures": 2,
-    "start": "2024-11-06T14:05:41.893Z",
-    "end": "2024-11-06T14:05:44.079Z",
-    "duration": 2186,
+    "pending": 2,
+    "failures": 1,
+    "start": "2024-11-06T14:28:04.566Z",
+    "end": "2024-11-06T14:28:05.252Z",
+    "duration": 686,
     "testsRegistered": 4,
-    "passPercent": 33.33333333333333,
-    "pendingPercent": 25,
+    "passPercent": 50,
+    "pendingPercent": 50,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "029abc4d-d0c6-478c-8a27-2fbb337c9bef",
+      "uuid": "a45257c6-6ad3-41c5-a122-f6d1b8fe29d7",
       "title": "",
       "fullFile": "C:\\Users\\Pąku\\Documents\\Repo\\TestWarezRepo\\tests\\api.test.js",
       "file": "\\tests\\api.test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "62e6b4eb-d1aa-4c98-b8eb-b2be3902b8f5",
+          "uuid": "4bf689fb-0d51-41e9-b86a-235721a43ae3",
           "title": "Api tests",
           "fullFile": "C:\\Users\\Pąku\\Documents\\Repo\\TestWarezRepo\\tests\\api.test.js",
           "file": "\\tests\\api.test.js",
@@ -47,8 +47,8 @@
               "context": null,
               "code": "",
               "err": {},
-              "uuid": "f79b4210-bfd7-421d-b254-de6ea169a56a",
-              "parentUUID": "62e6b4eb-d1aa-4c98-b8eb-b2be3902b8f5",
+              "uuid": "5bf39481-8b99-4bda-a32b-4e08cf3ed921",
+              "parentUUID": "4bf689fb-0d51-41e9-b86a-235721a43ae3",
               "isHook": false,
               "skipped": false
             },
@@ -56,21 +56,17 @@
               "title": "Create a user",
               "fullTitle": "Api tests Create a user",
               "timedOut": false,
-              "duration": 881,
-              "state": "failed",
+              "duration": 0,
+              "state": "pending",
               "speed": null,
               "pass": false,
-              "fail": true,
-              "pending": false,
+              "fail": false,
+              "pending": true,
               "context": null,
-              "code": "const response = await spec()\n.post(\"https://demoqa.com/Account/v1/User\")\n.withBody({\n    userName: userName,\n    password: password,\n})\n.inspect();\nexpect(response.statusCode).to.eql(201)",
-              "err": {
-                "message": "AssertionError: expected 406 to deeply equal 201",
-                "estack": "AssertionError: expected 406 to deeply equal 201\n    at Context.<anonymous> (file:///C:/Users/P%C4%85ku/Documents/Repo/TestWarezRepo/tests/api.test.js:28:40)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
-                "diff": "- 406\n+ 201\n"
-              },
-              "uuid": "e0347936-c83c-4296-8592-e32f3b26b292",
-              "parentUUID": "62e6b4eb-d1aa-4c98-b8eb-b2be3902b8f5",
+              "code": "",
+              "err": {},
+              "uuid": "1478a735-d6d9-4225-b7e5-2569c6bd72e6",
+              "parentUUID": "4bf689fb-0d51-41e9-b86a-235721a43ae3",
               "isHook": false,
               "skipped": false
             },
@@ -78,17 +74,17 @@
               "title": "Generation token",
               "fullTitle": "Api tests Generation token",
               "timedOut": false,
-              "duration": 488,
+              "duration": 535,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "const response = await spec()\n.post(`${baseUrl}/Account/v1/GenerateToken`)\n.withBody ({\n    userName: userName,\n    password: password,\n})\n    .inspect()\n    token_respons = response.body.token;\n    console.log(token_respons);\n    expect(response.statusCode).to.eql(200);\n    expect(response.body.result).to.eql(\"User authorized successfully.\");",
+              "code": "const response = await spec()\n.post(`${baseUrl}/Account/v1/GenerateToken`)\n.withBody ({\n    userName: userName,\n    password: password,\n})\n    .inspect()\n    token_response = response.body.token;\n    console.log(token_response);\n    expect(response.statusCode).to.eql(200);\n    expect(response.body.result).to.eql(\"User authorized successfully.\");",
               "err": {},
-              "uuid": "1b8c4de2-d5ec-4b5f-aa48-75452987b603",
-              "parentUUID": "62e6b4eb-d1aa-4c98-b8eb-b2be3902b8f5",
+              "uuid": "6b30e9c9-cd76-4eca-b7d5-eb15afbb3307",
+              "parentUUID": "4bf689fb-0d51-41e9-b86a-235721a43ae3",
               "isHook": false,
               "skipped": false
             },
@@ -96,38 +92,38 @@
               "title": "Add a book",
               "fullTitle": "Api tests Add a book",
               "timedOut": false,
-              "duration": 790,
+              "duration": 134,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
               "context": null,
-              "code": "const response = await spec()\n.post(`${baseUrl}/BookStore/v1/Books`)\n.withBearerToken(token_respons)\n.inspect()\n.withBody({\n    userId: userId,\n        collectionOfIsbns: [\n            {\n                isbn: isbn  \n        }\n    ]\n})\nexpect(response.statusCode).to.eql(201);",
+              "code": "const response = await spec()\n.post(`${baseUrl}/BookStore/v1/Books`)\n.withBearerToken(token_response)\n.withBody({\n    userId: userId,\n        collectionOfIsbns: [\n            {\n                isbn: isbn  \n        }\n    ]\n})\n.inspect()\nexpect(response.statusCode).to.eql(201);",
               "err": {
                 "message": "AssertionError: expected 401 to deeply equal 201",
                 "estack": "AssertionError: expected 401 to deeply equal 201\n    at Context.<anonymous> (file:///C:/Users/P%C4%85ku/Documents/Repo/TestWarezRepo/tests/api.test.js:58:44)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
                 "diff": "- 401\n+ 201\n"
               },
-              "uuid": "a6575252-bd1a-4128-babd-a406be48c413",
-              "parentUUID": "62e6b4eb-d1aa-4c98-b8eb-b2be3902b8f5",
+              "uuid": "d92537f2-dacf-4dc8-b3e3-fab8f6b49c81",
+              "parentUUID": "4bf689fb-0d51-41e9-b86a-235721a43ae3",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "1b8c4de2-d5ec-4b5f-aa48-75452987b603"
+            "6b30e9c9-cd76-4eca-b7d5-eb15afbb3307"
           ],
           "failures": [
-            "e0347936-c83c-4296-8592-e32f3b26b292",
-            "a6575252-bd1a-4128-babd-a406be48c413"
+            "d92537f2-dacf-4dc8-b3e3-fab8f6b49c81"
           ],
           "pending": [
-            "f79b4210-bfd7-421d-b254-de6ea169a56a"
+            "5bf39481-8b99-4bda-a32b-4e08cf3ed921",
+            "1478a735-d6d9-4225-b7e5-2569c6bd72e6"
           ],
           "skipped": [],
-          "duration": 2159,
+          "duration": 669,
           "root": false,
           "rootEmpty": false,
           "_timeout": 10000
