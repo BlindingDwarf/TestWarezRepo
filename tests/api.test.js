@@ -9,7 +9,6 @@ describe("Api tests", () => {
         const response = await spec().get(`${baseUrl}/BookStore/v1/Books`)
         .inspect()
         const responseB = JSON.stringify(response.body);
-        console.log("is dotenv work ?" + " " + process.env.SECRET_PASSWORD);
         expect(response.statusCode).to.eql(200);
         expect(responseB).to.include("Learning JavaScript Design Patterns");
         expect(responseB).to.include("Eloquent JavaScript, Second Edition");
